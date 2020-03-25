@@ -1,0 +1,31 @@
+QuorumTransactionSignerService:
+    Db:
+        DataConnString:
+            settings-key: QuorumTransactionSignerService-DataConnString
+        LogsConnString:
+            settings-key: QuorumTransactionSignerService-LogsConnString
+            types:
+              - AzureTableStorage
+    KeyVault:
+        AuthConnString:
+            settings-key: QuorumTransactionSignerService-KeyVaultAuthConnString
+        BaseUrl:
+            settings-key: QuorumTransactionSignerService-KeyVaultBaseUrl
+        PrivateKeyBackupEncryptionKeyName:
+            settings-key: QuorumTransactionSignerService-PrivateKeyBackupEncryptionKeyName
+        BatchSize:
+            settings-key: QuorumTransactionSignerService-BatchSize
+            types:
+                - Optional
+SlackNotifications:
+    AzureQueue:
+        ConnectionString:
+            settings-key: SlackNotificationsConnString
+            types:
+                - AzureTableStorage
+        QueueName:
+            settings-key: SlackQueueName
+MonitoringServiceClient:
+    MonitoringServiceUrl:
+        settings-key: MonitoringServiceUrl
+
