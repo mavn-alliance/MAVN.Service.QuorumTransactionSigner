@@ -20,7 +20,7 @@ namespace MAVN.Service.QuorumTransactionSigner.MsSqlRepositories.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Lykke.Service.QuorumTransactionSigner.MsSqlRepositories.Entities.WalletEntity", b =>
+            modelBuilder.Entity("MAVN.Service.QuorumTransactionSigner.MsSqlRepositories.Entities.WalletEntity", b =>
                 {
                     b.Property<string>("Address")
                         .ValueGeneratedOnAdd()
