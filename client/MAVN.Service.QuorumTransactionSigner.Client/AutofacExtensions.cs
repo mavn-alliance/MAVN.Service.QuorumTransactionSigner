@@ -1,4 +1,4 @@
-using Autofac;
+﻿using Autofac;
 using JetBrains.Annotations;
 using Lykke.HttpClientGenerator;
 using Lykke.HttpClientGenerator.Infrastructure;
@@ -44,7 +44,7 @@ namespace MAVN.Service.QuorumTransactionSigner.Client
                 throw new ArgumentException("Value cannot be null or whitespace.", nameof(QuorumTransactionSignerServiceClientSettings.ServiceUrl));
             }
 
-            var clientBuilder = HttpClientGenerator.HttpClientGenerator
+            var clientBuilder = HttpClientGenerator
                 .BuildForUrl(settings.ServiceUrl)
                 .WithAdditionalCallsWrapper(new ExceptionHandlerCallsWrapper());
 
