@@ -1,4 +1,4 @@
-using Lykke.Common.MsSql;
+using MAVN.Common.MsSql;
 using MAVN.Service.QuorumTransactionSigner.MsSqlRepositories.Entities;
 using Microsoft.EntityFrameworkCore;
 
