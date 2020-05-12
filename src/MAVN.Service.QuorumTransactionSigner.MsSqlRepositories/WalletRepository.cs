@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 using JetBrains.Annotations;
-using Lykke.Common.MsSql;
+using MAVN.Common.MsSql;
 using MAVN.Service.QuorumTransactionSigner.Domain.Repositories;
 using MAVN.Service.QuorumTransactionSigner.MsSqlRepositories.Contexts;
 using MAVN.Service.QuorumTransactionSigner.MsSqlRepositories.Entities;
