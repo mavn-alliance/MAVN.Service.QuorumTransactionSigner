@@ -1,11 +1,11 @@
-using Autofac;
+﻿using Autofac;
 using JetBrains.Annotations;
-using MAVN.Common.MsSql;
 using MAVN.Service.QuorumTransactionSigner.Domain.Repositories;
 using MAVN.Service.QuorumTransactionSigner.MsSqlRepositories;
 using MAVN.Service.QuorumTransactionSigner.MsSqlRepositories.Contexts;
 using MAVN.Service.QuorumTransactionSigner.Settings;
 using Lykke.SettingsReader;
+using MAVN.Persistence.PostgreSQL.Legacy;
 
 namespace MAVN.Service.QuorumTransactionSigner.Modules
 {
@@ -24,12 +24,14 @@ namespace MAVN.Service.QuorumTransactionSigner.Modules
             ContainerBuilder builder)
         {
             builder
-                .RegisterMsSql(() => new QtsContext(_dbSettings.DataConnString, false));
+                .RegisterPostgreSQL(_dbSettings.DataConnString,
+                    connString => new QtsContext(connString, false), 
+                    dbConn => new QtsContext(dbConn));
 
             builder
                 .Register(ctx => new WalletRepository
                 (
-                    ctx.Resolve<MsSqlContextFactory<QtsContext>>()
+                    ctx.Resolve<PostgreSQLContextFactory<QtsContext>>()
                 ))
                 .As<IWalletRepository>()
                 .SingleInstance();
