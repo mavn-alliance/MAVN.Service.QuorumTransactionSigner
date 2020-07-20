@@ -1,13 +1,13 @@
-using MAVN.Common.MsSql;
+﻿using System.Data.Common;
+using MAVN.Persistence.PostgreSQL.Legacy;
 using MAVN.Service.QuorumTransactionSigner.MsSqlRepositories.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace MAVN.Service.QuorumTransactionSigner.MsSqlRepositories.Contexts
 {
-    public class QtsContext : MsSqlContext
+    public class QtsContext : PostgreSQLContext
     {
         private const string Schema = "quorum_transaction_signer";
-
         
         public QtsContext()
             : base(Schema)
@@ -21,16 +21,14 @@ namespace MAVN.Service.QuorumTransactionSigner.MsSqlRepositories.Contexts
         {
         }
 
-        
-        internal DbSet<WalletEntity> Wallets { get; set; }
-
-        
-        protected override void OnLykkeConfiguring(
-            DbContextOptionsBuilder optionsBuilder)
+        public QtsContext(DbConnection dbConnection)
+            : base(Schema, dbConnection)
         {
         }
 
-        protected override void OnLykkeModelCreating(
+        internal DbSet<WalletEntity> Wallets { get; set; }
+
+        protected override void OnMAVNModelCreating(
             ModelBuilder modelBuilder)
         {
         }

@@ -1,6 +1,6 @@
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using JetBrains.Annotations;
-using MAVN.Common.MsSql;
+using MAVN.Persistence.PostgreSQL.Legacy;
 using MAVN.Service.QuorumTransactionSigner.Domain.Repositories;
 using MAVN.Service.QuorumTransactionSigner.MsSqlRepositories.Contexts;
 using MAVN.Service.QuorumTransactionSigner.MsSqlRepositories.Entities;
@@ -11,10 +11,10 @@ namespace MAVN.Service.QuorumTransactionSigner.MsSqlRepositories
     [UsedImplicitly]
     public class WalletRepository : IWalletRepository
     {
-        private readonly MsSqlContextFactory<QtsContext> _contextFactory;
+        private readonly PostgreSQLContextFactory<QtsContext> _contextFactory;
 
         public WalletRepository(
-            MsSqlContextFactory<QtsContext> contextFactory)
+            PostgreSQLContextFactory<QtsContext> contextFactory)
         {
             _contextFactory = contextFactory;
         }

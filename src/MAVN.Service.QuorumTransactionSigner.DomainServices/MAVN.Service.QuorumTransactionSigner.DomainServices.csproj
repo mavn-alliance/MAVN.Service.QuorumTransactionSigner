@@ -7,8 +7,8 @@
     <ProjectReference Include="..\MAVN.Service.QuorumTransactionSigner.Domain\MAVN.Service.QuorumTransactionSigner.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Services.AppAuthentication" Version="1.0.3" />
-    <PackageReference Include="Nethereum.Signer" Version="3.3.0" />
-    <PackageReference Include="Microsoft.Azure.KeyVault" Version="3.0.3" />
+    <PackageReference Include="Microsoft.Azure.Services.AppAuthentication" Version="1.5.0" />
+    <PackageReference Include="Nethereum.Signer" Version="3.7.1" />
+    <PackageReference Include="Microsoft.Azure.KeyVault" Version="3.0.5" />
   </ItemGroup>
 </Project>
